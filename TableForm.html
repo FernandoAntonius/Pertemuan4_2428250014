@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventaris Barang</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 20px;
+        background-color: rgb(255, 255, 255)
+    }
+
+    input {
+        width: 60%;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 6px;
+        border: 0.5px solid black;
+    }
+
+    select {
+        width: 60%;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 6px;
+    }
+
+    button {
+        width: 57%;
+        padding: 10px;
+        margin: 5px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(0, 200, 0);
+        border-radius: 6px;
+        border: 0.5px solid black;
+        font-weight: bold;
+    }
+
+    table {
+        width: 72%;
+        margin: 20px;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: left;
+    }
+
+
+</style>
+</head>
+<body>
+    <h2>Inventaris Barang</h2>
+
+        <input type="text" id="nama" placeholder="Nama Barang">
+        <input type="number" id="jumlah" placeholder="Jumlah">
+        <select id="kategori" placeholder="Kategori">
+            <option value="Elektronik">Elektronik</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Alat Tulis">Alat Tulis</option>
+            <option value="Peralatan">Peralatan</option>
+        </select>
+        <button onclick="masuktabel()">Tambah Barang</button>
+        
+    <center>
+    <table>
+        <thead>
+            <tr>
+                <th>Nama Barang</th>
+                <th>Jumlah</th>
+                <th>Kategori</th>
+            </tr>
+        </thead>
+        <tbody id="isitabel"> </tbody>
+    </table>
+    </center>
+
+    <script>
+        function masuktabel() {
+            let nama = document.getElementById("nama").value;
+            let jumlah = document.getElementById("jumlah").value;
+            let kategori = document.getElementById("kategori").value;
+    
+            if (nama && jumlah && kategori) {
+                let tabel = document.getElementById("isitabel");
+                let row = tabel.insertRow();
+                    row.insertCell(0).innerText = nama;
+                    row.insertCell(1).innerText = jumlah;
+                    row.insertCell(2).innerText = kategori;
+               
+                document.getElementById("nama").value = "";
+                document.getElementById("jumlah").value = "";
+                document.getElementById("kategori").value = "";
+            } else {
+                alert("Deskripsi barang kurang")
+            }
+        }
+    </script>
+
+</body>
+</html>
